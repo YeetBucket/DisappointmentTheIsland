@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <style>
+      .CENTER {
+        text-align:center;
+      }
+      .center { 
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div id="main-div" class="CENTER">
+      <h1 >wElCoMe tO dIsApPoInTmEnT iSlAnD!</h1>
+      <img src="DTI.png" class="center">
+
+      <br>
+      <button type="button" onclick="onHelloButtonClick();">Hello.</button>
+      <button type="button" onclick="onQuestionButtonClick();">?</button>
+      <button onclick="ajaxtest('delete.html');">AJAX TEST</button>
+    </div>
+    
+    <script>
+        // REFERENCE: https://github.com/topherPedersen/AdventureGameTemplateJS/tree/master
+        function onHelloButtonClick() {
+            document.getElementById('main-div').innerHTML = ""; // erase main-div
+            document.getElementById('main-div').innerHTML = "";    
+        }
+
+        function onQuestionButtonClick() {
+            document.getElementById('main-div').innerHTML = ""; 
+            document.getElementById('main-div').innerHTML = "";    
+        }
+
+        function ajaxtest(newPage) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // document.getElementById("demo").innerHTML = this.responseText;
+                    //document.write(this.responseText);
+                    loadNewPage(this.responseText);
+                }
+            };
+            xhttp.open("GET", newPage, true);
+            xhttp.send();
+        }
+
+        function loadNewPage(html) {
+            document.getElementById('main-div').innerHTML = ""; 
+            document.getElementById('main-div').innerHTML = html;
+        }
+        
+    </script>
+  </body>
+</html>
